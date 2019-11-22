@@ -3,7 +3,6 @@ import numpy  as np
 # 各種初始
 p = np.array([
 	[0.],
-	[0.],
 	[0.]
 ])
 
@@ -18,8 +17,8 @@ a = np.array([
 ])
 
 w = np.array([
-	[0.,0.,1.],
-	[1.,1.,1.]
+	[0.,0.],
+	[1.,1.]
 ])
 
 b = np.array([
@@ -48,6 +47,11 @@ O = np.array([
 ])
 # 初始end
 
+print("initial weights:\nW = \n",w,"\n")
+print("initial biases:\nb = \n",b,"\n")
+epoch = 0
+
+
 def hardlim(n):
 	index = 0
 	for i in n:
@@ -63,6 +67,7 @@ lists = file.readlines() # 以行分開
 datalen = len(lists)
 corr = 0
 while(corr != datalen):
+	epoch += 1
 	corr = 0
 	for li in lists:
 		li = li.strip('\n').split(" ") # 用空格切開每行的數值
@@ -77,13 +82,12 @@ while(corr != datalen):
 					t = O
 				elif(i == 'B'):
 					t = B
-			else:# 分割出x,y
+			elif (index != 2):# 分割出x,y
 				i = float(i)
 				p[index] = i
 			index += 1
 
 		n = w.dot(p) + b
-
 		hardlim(n)
 
 		if(~(a == t).all()):
@@ -93,6 +97,11 @@ while(corr != datalen):
 		else:
 			corr += 1
 #training end
+
+print("final weights:\nW = \n",w,"\n")
+print("final biases:\nb = \n",b,"\n")
+print("the number of epoch = ",epoch,"\n")
+print("the test output:")
 
 #test
 file = open("testing_data.txt","r")

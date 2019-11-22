@@ -9,6 +9,8 @@ p = np.array([
 # 宣告a & 初始
 a = np.array([
 	[0],
+	[0],
+	[0],
 	[0]
 ])
 
@@ -16,23 +18,32 @@ a = np.array([
 # 宣告t & 初始
 t = np.array([
 	[0],
+	[0],
+	[0],
 	[0]
 ])
 
 # 宣告w & 初始
 w = np.array([
 	[1,0],
+	[1,1],
+	[0,0],
 	[0,1]
 ])
 
 # 宣告b & 初始
 b = np.array([
-	[1],
-	[1]
+	[0],
+	[0],
+	[0],
+	[0]
 ])
 
+print("initial weights:\nW = \n",w,"\n")
+print("initial biases:\nb = \n",b,"\n")
+epoch = 0
 # training 
-file = open("training_data.txt","r")
+file = open("training_data_4N.txt","r")
 
 lists = file.readlines() #分行
 datalen = len(lists)
@@ -49,6 +60,7 @@ def hardlim(n):
 corr = 0
 while(corr != datalen):
 	corr = 0
+	epoch += 1
 	for li in lists:
 		li = li.strip('\n').split(" ")
 		index = 0
@@ -73,6 +85,10 @@ while(corr != datalen):
 			corr += 1
 #end training
 
+print("final weights:\nW = \n",w,"\n")
+print("final biases:\nb = \n",b,"\n")
+print("the number of epoch = ",epoch,"\n")
+print("the test output:")
 # test
 file = open("test_data.txt","r")
 
