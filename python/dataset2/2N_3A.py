@@ -14,50 +14,36 @@ t = np.array([
 
 a = np.array([
 	[1],
-	[1],
-	[1],
 	[1]
 ])
 
 w = np.array([
 	[0.,0.,1.],
-	[1.,0.,1.],
-	[0.,1.,1.],
-	[0.,0.,0.]
+	[1.,1.,1.]
 ])
 
 b = np.array([
-	[1.],
-	[1.],
 	[1.],
 	[1.]
 ])
 
 W = np.array([
-	[0], # 0
-	[0],
 	[0],
 	[0]
 ])
 
 P = np.array([
-	[1], # 1
 	[1],
-	[0],
 	[0]
 ])
 
 B = np.array([
-	[1], # 1
-	[1], # 1
 	[1],
-	[1] # 1
+	[1]
 ])
 
 O = np.array([
 	[0],
-	[0],
-	[1], # 1
 	[1]
 ])
 # 初始end
@@ -65,6 +51,7 @@ O = np.array([
 print("initial weights:\nW = \n",w,"\n")
 print("initial biases:\nb = \n",b,"\n")
 epoch = 0
+
 
 def hardlim(n):
 	index = 0
@@ -96,7 +83,7 @@ while(corr != datalen):
 					t = O
 				elif(i == 'B'):
 					t = B
-			else:# 分割出x,y,z
+			else:# 分割出x,y
 				i = float(i)
 				p[index] = i
 			index += 1
@@ -122,20 +109,19 @@ print("the test output:")
 file = open("testing_data.txt","r")
 lists = file.readlines() # 以行分開
 
-dataindex = 1 # 最後輸出的index
+dataindex = 1
 for li in lists:
 	li = li.strip('\n').split(" ")
 	index = 0
-	for i in li: # 分割出x,y,z
+	for i in li:
 		i = float(i)
 		p[index] = i
 		index += 1
 
-
 	n = w.dot(p) + b
+
 	hardlim(n)
 
-	#輸出判斷結果
 	if((a == W).all()):
 		print(dataindex,"W")
 	elif((a == B).all()):
@@ -144,6 +130,12 @@ for li in lists:
 		print(dataindex,"O")
 	elif((a == P).all()):
 		print(dataindex,"P")
-	else:	# 若是以上皆非 輸出ERROR
-		print(dataindex,"ERROR")
 	dataindex += 1
+
+
+
+
+
+
+
+

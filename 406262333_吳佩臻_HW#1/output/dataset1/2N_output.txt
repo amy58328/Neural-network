@@ -1,0 +1,31 @@
+initial weights:
+W = 
+ [[1 0]
+ [0 1]] 
+
+initial biases:
+b = 
+ [[1]
+ [1]] 
+
+final weights:
+W = 
+ [[-2  0]
+ [ 0 -2]] 
+
+final biases:
+b = 
+ [[-1]
+ [ 0]] 
+
+the number of epoch =  3 
+
+the test output:
+[[0]
+ [0]]
+[[0]
+ [1]]
+[[1]
+ [0]]
+[[1]
+ [1]]

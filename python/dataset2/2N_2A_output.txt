@@ -1,0 +1,63 @@
+initial weights:
+W = 
+ [[1. 1.]
+ [0. 0.]] 
+
+initial biases:
+b = 
+ [[-1.]
+ [-3.]] 
+
+final weights:
+W = 
+ [[14.2351  4.7548]
+ [-3.1936  9.9982]] 
+
+final biases:
+b = 
+ [[-7.]
+ [-1.]] 
+
+the number of epoch =  2 
+
+the test output:
+1 O
+2 O
+3 O
+4 B
+5 P
+6 O
+7 O
+8 W
+9 W
+10 P
+11 W
+12 B
+13 W
+14 W
+15 O
+16 B
+17 B
+18 B
+19 B
+20 O
+21 O
+22 P
+23 O
+24 O
+25 W
+26 P
+27 P
+28 B
+29 W
+30 O
+31 B
+32 P
+33 W
+34 O
+35 B
+36 P
+37 O
+38 W
+39 P
+40 B

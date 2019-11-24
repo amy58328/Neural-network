@@ -1,32 +1,24 @@
 initial weights:
 W = 
  [[0. 0. 1.]
- [1. 0. 1.]
- [0. 1. 1.]
- [0. 0. 0.]] 
+ [1. 1. 1.]] 
 
 initial biases:
 b = 
  [[1.]
- [1.]
- [1.]
  [1.]] 
 
 final weights:
 W = 
- [[  5.436   13.0104   8.3822]
- [ -5.0341 -14.6153   7.3349]
- [-18.5757   5.9325 -15.4989]
- [ 10.9164  -4.162  -10.2716]] 
+ [[-25.0708 -11.7474   3.0505]
+ [ -0.3874  -1.1474 -13.2151]] 
 
 final biases:
 b = 
- [[-45.]
- [-48.]
- [-51.]
- [-58.]] 
+ [[11.]
+ [ 3.]] 
 
-the number of epoch =  6 
+the number of epoch =  4 
 
 the test output:
 1 W
@@ -34,7 +26,7 @@ the test output:
 3 O
 4 B
 5 P
-6 ERROR
+6 O
 7 P
 8 W
 9 W
@@ -59,7 +51,7 @@ the test output:
 28 B
 29 W
 30 O
-31 ERROR
+31 B
 32 P
 33 W
 34 O

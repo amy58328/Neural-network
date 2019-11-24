@@ -3,7 +3,6 @@ import numpy  as np
 # 各種初始
 p = np.array([
 	[0.],
-	[0.],
 	[0.]
 ])
 
@@ -20,45 +19,45 @@ a = np.array([
 ])
 
 w = np.array([
-	[0.,0.,1.],
-	[1.,0.,1.],
-	[0.,1.,1.],
-	[0.,0.,0.]
+	[0.,0.],
+	[1.,1.],
+	[1.,1.],
+	[0.,0.]
 ])
 
 b = np.array([
-	[1.],
-	[1.],
-	[1.],
-	[1.]
+	[-3.],
+	[-1.],
+	[0.],
+	[-2.]
 ])
 
 W = np.array([
-	[0], # 0
-	[0],
-	[0],
-	[0]
+	[1], # 0
+	[1],
+	[1],
+	[1]
 ])
 
 P = np.array([
-	[1], # 1
-	[1],
+	[0],
+	[0],
 	[0],
 	[0]
 ])
 
 B = np.array([
-	[1], # 1
-	[1], # 1
+	[0],
 	[1],
-	[1] # 1
+	[0],
+	[1]	
 ])
 
 O = np.array([
+	[1],
 	[0],
-	[0],
-	[1], # 1
-	[1]
+	[1],
+	[0]
 ])
 # 初始end
 
@@ -96,7 +95,7 @@ while(corr != datalen):
 					t = O
 				elif(i == 'B'):
 					t = B
-			else:# 分割出x,y,z
+			elif(index<2):# 分割出x,y,z
 				i = float(i)
 				p[index] = i
 			index += 1
@@ -127,8 +126,9 @@ for li in lists:
 	li = li.strip('\n').split(" ")
 	index = 0
 	for i in li: # 分割出x,y,z
-		i = float(i)
-		p[index] = i
+		if(index < 2):
+			i = float(i)
+			p[index] = i
 		index += 1
 
 
@@ -146,4 +146,5 @@ for li in lists:
 		print(dataindex,"P")
 	else:	# 若是以上皆非 輸出ERROR
 		print(dataindex,"ERROR")
+		print(a)
 	dataindex += 1
