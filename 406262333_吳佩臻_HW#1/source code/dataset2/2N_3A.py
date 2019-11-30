@@ -63,7 +63,7 @@ def hardlim(n):
 		index += 1
 
 # trainging 
-file = open("training_data.txt","r")
+file = open("..\\..\\input\\dataset2\\改_training_data.txt","r")
 lists = file.readlines() # 以行分開
 datalen = len(lists)
 corr = 0
@@ -106,7 +106,7 @@ print("the number of epoch = ",epoch,"\n")
 print("the test output:")
 
 #test
-file = open("testing_data.txt","r")
+file = open("..\\..\\input\\dataset2\\改_testing_data.txt","r")
 lists = file.readlines() # 以行分開
 
 dataindex = 1
