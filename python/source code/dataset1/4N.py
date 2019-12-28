@@ -43,7 +43,7 @@ print("initial weights:\nW = \n",w,"\n")
 print("initial biases:\nb = \n",b,"\n")
 epoch = 0
 # training 
-file = open("training_data_4N.txt","r")
+file = open("..\\..\\input\\dataset1\\training_data_4N.txt","r")
 
 lists = file.readlines() #分行
 datalen = len(lists)
@@ -90,7 +90,7 @@ print("final biases:\nb = \n",b,"\n")
 print("the number of epoch = ",epoch,"\n")
 print("the test output:")
 # test
-file = open("test_data.txt","r")
+file = open("..\\..\\input\\dataset1\\test_data.txt","r")
 
 lists = file.readlines()
 

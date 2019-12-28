@@ -3,7 +3,6 @@ import numpy  as np
 # 各種初始
 p = np.array([
 	[0.],
-	[0.],
 	[0.]
 ])
 
@@ -18,33 +17,35 @@ a = np.array([
 ])
 
 w = np.array([
-	[0.,0.,1.],
-	[1.,1.,1.]
+	[1.,1.],
+	[0.,0.]
+	
 ])
 
 b = np.array([
 	[1.],
 	[1.]
+	
 ])
 
 W = np.array([
-	[0],
-	[0]
+	[1],
+	[1]
 ])
 
 P = np.array([
-	[1],
+	[0],
 	[0]
 ])
 
 B = np.array([
-	[1],
+	[0],
 	[1]
 ])
 
 O = np.array([
-	[0],
-	[1]
+	[1],
+	[0]
 ])
 # 初始end
 
@@ -63,7 +64,7 @@ def hardlim(n):
 		index += 1
 
 # trainging 
-file = open("training_data.txt","r")
+file = open("..\\..\\input\\dataset2\\改_training_data.txt","r")
 lists = file.readlines() # 以行分開
 datalen = len(lists)
 corr = 0
@@ -83,13 +84,12 @@ while(corr != datalen):
 					t = O
 				elif(i == 'B'):
 					t = B
-			else:# 分割出x,y
+			elif (index < 2):# 分割出x,y
 				i = float(i)
 				p[index] = i
 			index += 1
 
 		n = w.dot(p) + b
-
 		hardlim(n)
 
 		if(~(a == t).all()):
@@ -106,7 +106,7 @@ print("the number of epoch = ",epoch,"\n")
 print("the test output:")
 
 #test
-file = open("testing_data.txt","r")
+file = open("..\\..\\input\\dataset2\\改_testing_data.txt","r")
 lists = file.readlines() # 以行分開
 
 dataindex = 1
@@ -114,8 +114,9 @@ for li in lists:
 	li = li.strip('\n').split(" ")
 	index = 0
 	for i in li:
-		i = float(i)
-		p[index] = i
+		if(index < 2):	
+			i = float(i)
+			p[index] = i
 		index += 1
 
 	n = w.dot(p) + b

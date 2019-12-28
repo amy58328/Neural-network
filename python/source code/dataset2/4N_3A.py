@@ -3,6 +3,7 @@ import numpy  as np
 # 各種初始
 p = np.array([
 	[0.],
+	[0.],
 	[0.]
 ])
 
@@ -19,45 +20,45 @@ a = np.array([
 ])
 
 w = np.array([
-	[0.,0.],
-	[1.,1.],
-	[1.,1.],
-	[0.,0.]
+	[0.,0.,1.],
+	[1.,0.,1.],
+	[0.,1.,1.],
+	[0.,0.,0.]
 ])
 
 b = np.array([
-	[-3.],
-	[-1.],
-	[0.],
-	[-2.]
+	[1.],
+	[1.],
+	[1.],
+	[1.]
 ])
 
 W = np.array([
-	[1], # 0
-	[1],
-	[1],
-	[1]
+	[0], # 0
+	[0],
+	[0],
+	[0]
 ])
 
 P = np.array([
-	[0],
-	[0],
+	[1], # 1
+	[1],
 	[0],
 	[0]
 ])
 
 B = np.array([
-	[0],
+	[1], # 1
+	[1], # 1
 	[1],
-	[0],
-	[1]	
+	[1] # 1
 ])
 
 O = np.array([
-	[1],
 	[0],
-	[1],
-	[0]
+	[0],
+	[1], # 1
+	[1]
 ])
 # 初始end
 
@@ -75,7 +76,7 @@ def hardlim(n):
 		index += 1
 
 # trainging 
-file = open("training_data.txt","r")
+file = open("..\\..\\input\\dataset2\\改_training_data.txt","r")
 lists = file.readlines() # 以行分開
 datalen = len(lists)
 corr = 0
@@ -95,7 +96,7 @@ while(corr != datalen):
 					t = O
 				elif(i == 'B'):
 					t = B
-			elif(index<2):# 分割出x,y,z
+			else:# 分割出x,y,z
 				i = float(i)
 				p[index] = i
 			index += 1
@@ -118,7 +119,7 @@ print("the number of epoch = ",epoch,"\n")
 print("the test output:")
 
 #test
-file = open("testing_data.txt","r")
+file = open("..\\..\\input\\dataset2\\改_testing_data.txt","r")
 lists = file.readlines() # 以行分開
 
 dataindex = 1 # 最後輸出的index
@@ -126,9 +127,8 @@ for li in lists:
 	li = li.strip('\n').split(" ")
 	index = 0
 	for i in li: # 分割出x,y,z
-		if(index < 2):
-			i = float(i)
-			p[index] = i
+		i = float(i)
+		p[index] = i
 		index += 1
 
 
@@ -146,5 +146,4 @@ for li in lists:
 		print(dataindex,"P")
 	else:	# 若是以上皆非 輸出ERROR
 		print(dataindex,"ERROR")
-		print(a)
 	dataindex += 1
