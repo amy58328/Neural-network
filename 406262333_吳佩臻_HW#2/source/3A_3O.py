@@ -2,7 +2,7 @@ import numpy as np
 import math 
 import random
 
-hidden = [1,5,10,1520]
+hidden = [5,10,15,20]
 learning = [0.3,0.5,0.7,1]
 
 number_of_input = 4
