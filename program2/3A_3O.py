@@ -168,9 +168,9 @@ def backpropogation(hidden_layer,learning_rate):
 
 		# 計算a1
 		for i in range(0,hidden_layer):
-				temp = w1[i].dot(p)+b1[i]
-				temp = 1 / (1 + math.exp(-temp))
-				a1[i] = temp
+			temp = w1[i].dot(p)+b1[i]
+			temp = 1 / (1 + math.exp(-temp))
+			a1[i] = temp
 
 		# 計算a2
 		for i in range(0,number_of_output):
